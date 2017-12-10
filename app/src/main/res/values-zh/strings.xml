@@ -7,7 +7,7 @@
     <string name="crime_details_label">明细</string>
     <string name="crime_solved_label">是否解决</string>
     <string name="contact_police">联系警方</string>
-    <string name="crime_solved_image_view">疑案解决示意图</string>
+    <string name="crime_solved_image_view">疑案已解决</string>
     <string name="crime_requires_police_label">是否需警方介入</string>
     <string name="jump_to_first">第一项</string>
     <string name="jump_to_last">最后一项</string>
