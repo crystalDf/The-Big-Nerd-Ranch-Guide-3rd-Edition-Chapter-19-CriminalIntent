@@ -70,6 +70,8 @@ public class CrimeFragment extends Fragment {
 
     private Callbacks mCallbacks;
 
+    private boolean mIsVisibleToUser;
+
     public interface Callbacks {
         void onCrimeUpdated();
         void onCrimeDeleted();
@@ -450,6 +452,10 @@ public class CrimeFragment extends Fragment {
             mPhotoView.setClickable(false);
             mPhotoView.setContentDescription(
                     getResources().getString(R.string.crime_photo_no_image_description));
+            if (mIsVisibleToUser) {
+                mPhotoView.announceForAccessibility(
+                        getResources().getString(R.string.crime_photo_no_image_description));
+            }
         } else {
             Bitmap bitmap = PictureUtils.getScaledBitmap(
                     mPhotoFile.getPath(), mPhotoView.getWidth(), mPhotoView.getHeight());
@@ -457,6 +463,17 @@ public class CrimeFragment extends Fragment {
             mPhotoView.setClickable(true);
             mPhotoView.setContentDescription(
                     getResources().getString(R.string.crime_photo_image_description));
+            if (mIsVisibleToUser) {
+                mPhotoView.announceForAccessibility(
+                        getResources().getString(R.string.crime_photo_image_description));
+            }
         }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        mIsVisibleToUser = isVisibleToUser;
     }
 }
