@@ -68,18 +68,7 @@ public class Crime {
         mSuspect = suspect;
     }
 
-    public String getFormattedDate() {
-        String format = "EEEE, MMM d, yyyy";
-        if (Locale.getDefault().equals(Locale.CHINA)) {
-            format = "EEEE，MMMd日，yyyy";
-        }
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault());
-
-        return simpleDateFormat.format(mDate);
-    }
-
-    public String getFormattedTime() {
-        String format = "HH:mm";
+    public String getFormattedDate(String format) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault());
 
         return simpleDateFormat.format(mDate);
