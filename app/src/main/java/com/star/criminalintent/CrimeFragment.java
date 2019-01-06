@@ -34,6 +34,7 @@ import com.star.criminalintent.model.Suspect;
 import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import androidx.core.app.ShareCompat;
@@ -327,7 +328,7 @@ public class CrimeFragment extends Fragment {
                 ContactsContract.Contacts.DISPLAY_NAME
         };
 
-        try (Cursor cursor = getActivity().getContentResolver().query(contactUri, queryFields,
+        try (Cursor cursor = getActivity().getContentResolver().query(Objects.requireNonNull(contactUri), queryFields,
                 null, null, null)) {
             if ((cursor == null) || (cursor.getCount() == 0)) {
                 return;
